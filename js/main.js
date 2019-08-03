@@ -1,5 +1,10 @@
 
-
+var a = async ()=>{
+ await  setTimeout(function(){ alert("Hello"); return 1 }, 3000);
+}
+a().then(()=>{
+  alert("j")
+})
 
 /**
  * @Package: Shipping - Logistics & Transport HTML Template
@@ -415,6 +420,40 @@ autoplay:true,
 
     }
 
+    SHIPPING_SETTINGS.isotopeMasonaryGallery = function() {
+
+
+          if ($.isFunction($.fn.isotope)) {
+
+              var $container = $('#gallery-isotope');
+              $container.isotope({
+                  filter: '*',
+                  layoutMode: 'sloppyMasonry',
+                  animationOptions: {
+                      duration: 750,
+                      easing: 'linear',
+                      queue: false
+                  }
+              });
+
+              $(".filter-isotope .filter").on('click', function() {
+                  $('.filter-isotope .filter.active').removeClass('active');
+                  $(this).addClass('active');
+
+                  var selector = $(this).attr('data-filter');
+                  $container.isotope({
+                      filter: selector,
+                      layoutMode: 'sloppyMasonry',
+                      animationOptions: {
+                          duration: 750,
+                          easing: 'linear',
+                          queue: false
+                      }
+                  });
+                  return false;
+              });
+          }
+      }
 
 
 
